@@ -17,6 +17,7 @@ async function row1SeqPlay(){
     let cells = Array.from(board.children);
     cells = cells.slice(0, 3);
     cells.forEach(cell=>cell.innerHTML = ".");
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -25,7 +26,13 @@ async function row1SeqPlay(){
         await wait(1000);
     }
     hideAll();
-    guess.innerHTML = choose(guesses);
+    cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
    // canGuess = true;
 }
 
@@ -37,6 +44,7 @@ async function row1UniqSeqPlay(){
     // canGuess = false;
     let numIndex = 0;
     let nums = shuffle([1,2,3,4,5,6,7,8,9])
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];
@@ -46,7 +54,13 @@ async function row1UniqSeqPlay(){
         await wait(1000);
     }
     hideAll();
-    guess.innerHTML = choose(guesses);
+    cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
    // canGuess = true;
 }
 async function row1RandSeqPlay(){
@@ -56,6 +70,7 @@ async function row1RandSeqPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
     cells = shuffle(cells);
    // canGuess = false;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -64,11 +79,14 @@ async function row1RandSeqPlay(){
         await wait(1000);
     }
     hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-   // canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 async function row1RandUniqSeqPlay(){
@@ -80,6 +98,8 @@ async function row1RandUniqSeqPlay(){
    // canGuess = false;
     let nums = shuffle([1,2,3,4,5,6,7,8,9]);
     let numIndex = 0;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];//choose([1,2,3,4,5,6,7,8,9]);
@@ -89,11 +109,14 @@ async function row1RandUniqSeqPlay(){
         await wait(1000);
     }
     hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-   // canGuess = true;
+  cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 
@@ -104,6 +127,8 @@ async function row1ContPlay(){
    cells.forEach(cell=>cell.innerHTML = ".");
     // cells = Array.from(board.children);
     //canGuess = false;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -112,12 +137,14 @@ async function row1ContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 async function row1RandContPlay(){
     gover_dialog.open=false;
@@ -126,6 +153,8 @@ async function row1RandContPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
     cells = shuffle(cells);
     //canGuess = false;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -134,12 +163,14 @@ async function row1RandContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 async function row1RandUniqContPlay(){
     gover_dialog.open=false;
@@ -150,6 +181,8 @@ async function row1RandUniqContPlay(){
     //canGuess = false;
     let nums = shuffle([1,2,3,4,5,6,7,8,9]);
     let numIndex = 0;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];// choose([1,2,3,4,5,6,7,8,9]);
@@ -159,12 +192,14 @@ async function row1RandUniqContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+  cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 async function row2SeqPlay(){
@@ -173,6 +208,8 @@ async function row2SeqPlay(){
     cells = cells.slice(0, 6);
     cells.forEach(cell=>cell.innerHTML = ".");
     //console.log("2 row seq play", ", cells: ", cells.length);
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -181,8 +218,14 @@ async function row2SeqPlay(){
         await wait(1000);
     }
     hideAll();
-    guess.innerHTML = choose(guesses);
-   // canGuess = true;
+    cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 async function row2UniqSeqPlay(){
     gover_dialog.open=false;
@@ -192,6 +235,8 @@ async function row2UniqSeqPlay(){
    // canGuess = false;
     let numIndex = 0;
     let nums = shuffle([1,2,3,4,5,6,7,8,9])
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];
@@ -201,8 +246,14 @@ async function row2UniqSeqPlay(){
         await wait(1000);
     }
     hideAll();
-    guess.innerHTML = choose(guesses);
-   // canGuess = true;
+    cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 
@@ -213,6 +264,8 @@ async function row2RandSeqPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
     cells = shuffle(cells);
     //canGuess = false;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -221,11 +274,14 @@ async function row2RandSeqPlay(){
         await wait(1000);
     }
     hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 
@@ -238,6 +294,8 @@ async function row2RandUniqSeqPlay(){
     //canGuess = false;
     let nums = shuffle([1,2,3,4,5,6,7,8,9]);
     let numIndex = 0;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];//choose([1,2,3,4,5,6,7,8,9]);
@@ -247,11 +305,14 @@ async function row2RandUniqSeqPlay(){
         await wait(1000);
     }
     hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 async function row2ContPlay(){
@@ -261,6 +322,8 @@ async function row2ContPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
    // cells = Array.from(board.children);
   //  canGuess = false;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -269,12 +332,14 @@ async function row2ContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 async function row2RandContPlay(){
@@ -284,6 +349,8 @@ async function row2RandContPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
     cells = shuffle(cells);
     //canGuess = false;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -292,12 +359,14 @@ async function row2RandContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 async function row2RandUniqContPlay(){
     gover_dialog.open=false;
@@ -308,6 +377,8 @@ async function row2RandUniqContPlay(){
     //canGuess = false;
     let nums = shuffle([1,2,3,4,5,6,7,8,9]);
     let numIndex = 0;
+    let operand = choose([1,2,3,4,5,6,7,8,9]);
+
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];// choose([1,2,3,4,5,6,7,8,9]);
@@ -317,12 +388,14 @@ async function row2RandUniqContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+   
 }
 
 
@@ -335,6 +408,8 @@ async function seqPlay(){
    // cells = cells.slice(0, 6);
     cells.forEach(cell=>cell.innerHTML = ".");
     //console.log("2 row seq play", ", cells: ", cells.length);
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -343,8 +418,14 @@ async function seqPlay(){
         await wait(1000);
     }
     hideAll();
-    guess.innerHTML = choose(guesses);
-   // canGuess = true;
+     cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 async function uniqSeqPlay(){
     gover_dialog.open=false;
@@ -354,6 +435,8 @@ async function uniqSeqPlay(){
    // canGuess = false;
     let numIndex = 0;
     let nums = shuffle([1,2,3,4,5,6,7,8,9])
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];
@@ -363,8 +446,14 @@ async function uniqSeqPlay(){
         await wait(1000);
     }
     hideAll();
-    guess.innerHTML = choose(guesses);
-   // canGuess = true;
+     cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 
 
@@ -375,6 +464,8 @@ async function randSeqPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
     cells = shuffle(cells);
     //canGuess = false;
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -383,11 +474,14 @@ async function randSeqPlay(){
         await wait(1000);
     }
     hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+  cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 
 
@@ -400,6 +494,8 @@ async function randUniqSeqPlay(){
     //canGuess = false;
     let nums = shuffle([1,2,3,4,5,6,7,8,9]);
     let numIndex = 0;
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];//choose([1,2,3,4,5,6,7,8,9]);
@@ -409,11 +505,14 @@ async function randUniqSeqPlay(){
         await wait(1000);
     }
     hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 
 async function contPlay(){
@@ -423,6 +522,8 @@ async function contPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
    // cells = Array.from(board.children);
   //  canGuess = false;
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -431,12 +532,14 @@ async function contPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+   cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 
 async function randContPlay(){
@@ -446,6 +549,8 @@ async function randContPlay(){
     cells.forEach(cell=>cell.innerHTML = ".");
     cells = shuffle(cells);
     //canGuess = false;
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = choose([1,2,3,4,5,6,7,8,9]);
@@ -454,12 +559,14 @@ async function randContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+    cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 
 async function randUniqContPlay(){
@@ -471,6 +578,8 @@ async function randUniqContPlay(){
     //canGuess = false;
     let nums = shuffle([1,2,3,4,5,6,7,8,9]);
     let numIndex = 0;
+     let operand = choose([1,2,3,4,5,6,7,8,9]);
+ 
     for (let cell of cells){
         show(cell);
         let num = nums[numIndex];// choose([1,2,3,4,5,6,7,8,9]);
@@ -480,12 +589,14 @@ async function randUniqContPlay(){
         await wait(1000);
         hide(cell);
     }
-   // hideAll();
-   // let operand = choose(guesses);
-   // cells.forEach(cell=> cell.innerHTML=Number(cell.innerHTML)+operand)
-    //guesses = guesses.map(guess => guess+operand)
-    guess.innerHTML = choose(guesses);
-    //canGuess = true;
+    cells.forEach(cell => cell.innerHTML = +cell.textContent + operand);
+    let opElm = document.getElementById("operation")
+    opElm.innerHTML = " + " + operand;
+    show(opElm);
+    await wait(1000);
+    hide(opElm);
+    guess.innerHTML = +choose(guesses)+operand;
+
 }
 
 
@@ -588,4 +699,4 @@ function setUniformLimit(n, currPlayer){
         player = player.next;
     }
 }
-setUniformLimit(5, currentPlayer);
+setUniformLimit(1, currentPlayer);
