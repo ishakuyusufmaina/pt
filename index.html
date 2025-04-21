@@ -42,7 +42,7 @@
     }
 
     .checkbox-container {
-      display: flex;
+      //display: flex;
       align-items: center;
       margin: 1rem 0;
     }
@@ -133,14 +133,14 @@
         <option value="500">500 Level</option>
       </select>
 
-      <div class="checkbox-container">
-        <label for="canAfford">Can you afford a domain name (&#8358;5k)?</label>
+      <fieldset class="checkbox-container">
+        <legend>Can you afford a domain name (&#8358;5k)?</legend>
         <input type="radio" id="yes" name="canAfford"> 
         <label for="yes">Yes</label> <br>
         <input type="radio" id="no" name="canAfford"> 
-        <label for="no">Yes</label>
+        <label for="no">No</label>
        
-      </div>
+      </fieldset>
 
       <button type="submit">Proceed</button>
     </form>
